@@ -1,5 +1,4 @@
 """Simple entry point for the FinanceTracker app."""
-"""Simple entry point for the FinanceTracker app."""
 
 from typing import List
 
@@ -13,7 +12,11 @@ def summarize(args: List[str]) -> str:
 
 def main(argv: List[str] | None = None) -> int:
     income = input("Enter your income: ")
-    expenses = input("Enter your expenses: ")
+    expenses = dict()
+    while input("Add an expense? (y/n): ").lower() == 'y':
+        expense_name = input("Expense name: ")
+        expense_amount = input("Expense amount: ")
+        expenses[expense_name] = expense_amount
     print(f"Income: {income}, Expenses: {expenses}")
     if argv is None:
         import sys
